@@ -10,7 +10,7 @@ the Free Software Foundation, either version 2 of the License, or
 (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
+but WITHOUT ANY WARRANTY; without even the implied warranty ofs
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
@@ -23,5 +23,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Select hand configuration */
 
 #define MASTER_LEFT
+#ifdef TAPPING_TERM
+#undef TAPPING_TERM
+#define TAPPING_TERM 180
+#endif
 // #define MASTER_RIGHT
 // #define EE_HANDS
