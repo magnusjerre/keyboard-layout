@@ -6,6 +6,27 @@
 #    include "keymap.h"
 #endif
 
+enum custom_keycodes {
+    ARROW_EQUALS = SAFE_RANGE
+};
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case ARROW_EQUALS:
+            if (record->event.pressed) {
+                // when keycode i pressed
+                register_code(KC_LSFT);
+                tap_code(KC_0);
+                tap_code(KC_NUBS);
+                unregister_code(KC_LSFT);
+            } else {
+                // when keycode is released
+            }
+            break;
+    }
+    return true;
+}
+
 
 /* THIS FILE WAS GENERATED!
  *
@@ -24,14 +45,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         RALT(KC_2), KC_MINS, KC_SLSH, LSFT(KC_NUHS), LSFT(KC_7), LSFT(KC_0), KC_TRNS,   /*...*/ KC_TRNS, KC_0, KC_1, KC_2, KC_3, RALT(KC_8), RALT(KC_9),
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_SPC, KC_DEL,                    /*...*/ KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS),
     [2] = LAYOUT(
-        KC_VOLU, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_TRNS, /*...*/ KC_NO, KC_NO, KC_NO, RGB_M_P, RGB_M_R, RGB_M_B, RGB_TOG,
+        KC_VOLU, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_TRNS, /*...*/ KC_NO, KC_NO, ARROW_EQUALS, RGB_M_P, RGB_M_R, RGB_M_B, RGB_TOG,
         KC_VOLD, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_TRNS, /*...*/ KC_NO, KC_NO, KC_LALT, KC_LCTL, KC_LSFT, KC_NO, KC_NO,
         KC_MPLY, KC_NO, KC_NO, KC_NO, KC_F11, KC_F12, KC_TRNS, /*...*/ KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
         RGB_SAD, RGB_SAI, RGB_VAD, RGB_VAI, KC_TRNS, KC_SPC, KC_TRNS, /*...*/ KC_TRNS, KC_TRNS, KC_TRNS, RGB_SPD, RGB_SPI, RGB_HUD, RGB_HUI),
     [3] = LAYOUT(
         KC_ESC, KC_RBRC, LSFT(KC_RBRC), KC_HASH, RALT(KC_4), RALT(KC_RBRC), KC_TRNS, /*...*/ LCTL(KC_PPLS), KC_HOME, KC_PGDN, KC_UP, KC_PGUP, KC_END, KC_PSCR,
-        KC_CAPS, KC_NO, KC_LSFT, KC_LCTL, KC_LALT, LSFT(KC_MINS), KC_TRNS, /*...*/ LCTL(KC_PMNS), KC_INS, KC_LEFT, KC_DOWN, KC_RGHT, KC_NO, KC_RBRC,
-        KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_APP, KC_TRNS, /*...*/ KC_TRNS, KC_ACL0, KC_ACL1, KC_BTN1, KC_BTN2, KC_ACL2, KC_ENT,
+        KC_TRNS, KC_NO, KC_LSFT, KC_LCTL, KC_LALT, LSFT(KC_MINS), KC_TRNS, /*...*/ LCTL(KC_PMNS), KC_INS, KC_LEFT, KC_DOWN, KC_RGHT, KC_NO, KC_RBRC,
+        KC_CAPS, KC_NO, KC_NO, KC_NO, KC_NO, KC_APP, KC_TRNS, /*...*/ KC_TRNS, KC_ACL0, KC_ACL1, KC_BTN1, KC_BTN2, KC_ACL2, KC_ENT,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, /*...*/ KC_TRNS, KC_BSPC, KC_ENT, KC_DEL, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R)
 };
 
