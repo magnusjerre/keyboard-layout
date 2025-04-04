@@ -27,6 +27,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 }
 
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LSFT_T(KC_S):
+            return TAPPING_TERM + 30;
+        case LSFT_T(KC_L):
+            return TAPPING_TERM + 30;
+        default:
+            return TAPPING_TERM;
+    }
+}
+
 
 /* THIS FILE WAS GENERATED!
  *
@@ -51,12 +62,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         RGB_SAD, RGB_SAI, RGB_VAD, RGB_VAI, KC_TRNS, KC_SPC, KC_TRNS, /*...*/ KC_TRNS, KC_TRNS, KC_TRNS, RGB_SPD, RGB_SPI, RGB_HUD, RGB_HUI),
     [3] = LAYOUT(
         KC_ESC, KC_RBRC, LSFT(KC_RBRC), KC_HASH, RALT(KC_4), RALT(KC_RBRC), KC_TRNS, /*...*/ LCTL(KC_PPLS), KC_HOME, KC_PGDN, KC_UP, KC_PGUP, KC_END, KC_PSCR,
-        KC_TRNS, KC_NO, KC_LSFT, KC_LCTL, KC_LALT, LSFT(KC_MINS), KC_TRNS, /*...*/ LCTL(KC_PMNS), KC_INS, KC_LEFT, KC_DOWN, KC_RGHT, KC_NO, KC_RBRC,
+        MO(4), KC_NO, KC_LSFT, KC_LCTL, KC_LALT, LSFT(KC_MINS), KC_TRNS, /*...*/ LCTL(KC_PMNS), KC_INS, KC_LEFT, KC_DOWN, KC_RGHT, KC_NO, KC_RBRC,
         KC_CAPS, KC_NO, KC_NO, KC_NO, KC_NO, KC_APP, KC_TRNS, /*...*/ KC_TRNS, KC_ACL0, KC_ACL1, KC_BTN1, KC_BTN2, KC_ACL2, KC_ENT,
         KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, /*...*/ KC_TRNS, KC_BSPC, KC_ENT, KC_DEL, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R),
     [4] = LAYOUT(
         KC_GRV, KC_NUBS,    LSFT(KC_NUBS), RALT(KC_7), RALT(KC_0), LSFT(KC_1), KC_NO, /*...*/ KC_NO, RALT(KC_4), LSFT(KC_2), KC_NUHS, RSFT(KC_EQL), RALT(KC_EQL), LSFT(KC_RBRC),
-        KC_NO,  KC_EQL,     LSFT(KC_7),    LSFT(KC_8), LSFT(KC_9), LSFT(KC_0), KC_NO, /*...*/ KC_NO, LSFT(KC_0), KC_NO, KC_NO, KC_NO, KC_NO, RALT(KC_RBRC),
+        KC_NO,  KC_EQL,     LSFT(KC_7),    LSFT(KC_8), LSFT(KC_9), LSFT(KC_0), KC_NO, /*...*/ KC_NO, LSFT(KC_0), KC_NO, KC_NO, KC_NO, LSFT(KC_3), RALT(KC_RBRC),
         KC_NO,  LSFT(KC_5), LSFT(KC_6),    RALT(KC_8), RALT(KC_9), LSFT(KC_MINS), KC_NO, /*...*/ KC_NO, RALT(KC_2), KC_NO, KC_NO, KC_NO, KC_NO, KC_RBRC,
         KC_NO,  KC_NO,      KC_NO,         KC_NO,      KC_NO,      KC_NO,      KC_NO, /*...*/ KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO)
 };
